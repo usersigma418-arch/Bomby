@@ -96,13 +96,13 @@ def default_reply_keyboard() -> ReplyKeyboardMarkup:
         resize_keyboard=True
     )
 
-MAIN_OWNER =6593129349
+MAIN_OWNER = "6593129349"
 SUPER_ADMIN_NAME = "@HarisPrachi"
 SUPER_ADMIN_LINK = "https://t.me/HarisPrachi"
-SUPER_ADMINS = [""]
+SUPER_ADMINS = ["6593129349"]
 
 BOT_TOKEN = "8983866185:AAF-26i5tE9fELrBw2t5rn6ISC1gKgluLKU"
-LOG_CHANNEL_ID = -1004411868183
+LOG_CHANNEL_ID = -1003767136934
 
 _DATA_FILE = "bomberr_data.json"
 _VERSION = "v3.2-PREMIUM"
