@@ -28,7 +28,7 @@ def stylish_text(text):
 
 BOT_TOKEN = "8983866185:AAH9msyPUWPF6dsPZlahTu3IGnMaKcPDdNw"
 ADMIN_CHAT_ID = 6593129349
-REQUIRED_CHANNELS = [{"username": "https://t.me/+skVu9tSSuccyYTQ1", "id": -1003767136934}, {"username": "", "id": ""}]
+REQUIRED_CHANNELS = [{"username": "+skVu9tSSuccyYTQ1", "id": -1003767136934}, {"username": "", "id": ""}]
 PREMIUM_PRICES = {7: 50, 30: 100}
 
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
