@@ -146,13 +146,48 @@ async def check_membership(uid, context):
             logger.warning(f"Membership check failed for {ch['username']}: {e}"); missing.append(ch["username"])
     return len(missing) == 0, missing
 
+
 async def send_force_subscribe_message(chat_id, context, missing):
-    kbd = [[cb(f"Join {u}", url=f"https://t.me/{u.lstrip('@')}")] for u in missing]
-    kbd.append([cb("✅ I have joined", callback_data="check_subscribe")])
-    text = "🔒 <b>Access Restricted</b>\n\nYou must join the following channels to use this bot:\n\n"
-    for u in missing: text += f"• {u}\n"
-    text += "\nAfter joining, click the button below."
-    await context.bot.send_message(chat_id, stylish_text(text), parse_mode="HTML", reply_markup=InlineKeyboardMarkup(kbd))
+    kbd = []
+    text = (
+        "🔒 <b>Access Restricted</b>\n\n"
+        "You must join the following channel to use this bot:\n\n"
+    )
+
+    for ch in REQUIRED_CHANNELS:
+        channel_id = ch.get("id")
+        username = ch.get("username", "").strip()
+        invite_link = ch.get("invite_link", "").strip()
+
+        if channel_id in (None, ""):
+            continue
+
+        if username not in missing and str(channel_id) not in missing:
+            continue
+
+        text += f"• {username or 'Private Channel'}\n"
+
+        if invite_link.startswith("https://t.me/+"):
+            kbd.append([
+                InlineKeyboardButton(
+                    "Join Channel",
+                    url=invite_link
+                )
+            ])
+
+    kbd.append([
+        InlineKeyboardButton(
+            "✅ I have joined",
+            callback_data="check_subscribe"
+        )
+    ])
+
+    await context.bot.send_message(
+        chat_id=chat_id,
+        text=stylish_text(text),
+        parse_mode="HTML",
+        reply_markup=InlineKeyboardMarkup(kbd)
+    )
 
 async def broadcast(context, msg):
     users = await q('SELECT user_id FROM users', (), 'all')
