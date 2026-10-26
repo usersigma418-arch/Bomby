@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://sk-admin-v-30-default-rtdb.firebaseio.com",
+    "key": "toxic"
+  },
+  {
+    "url": "https://dhoni-ji-default-rtdb.firebaseio.com",
+    "key": "toxic"
+  },
+  {
+    "url": "https://dk-panel-default-rtdb.firebaseio.com",
+    "key": "toxic"
+  },
+  {
+    "url": "https://do-admin-v13-default-rtdb.firebaseio.com",
+    "key": "toxic"
+  },
+  {
+    "url": "https://do-admin-v16-default-rtdb.firebaseio.com",
+    "key": "toxic"
+  },
+  {
+    "url": "https://do-admin-v21-default-rtdb.firebaseio.com",
+    "key": "toxic"
+  }
+]
